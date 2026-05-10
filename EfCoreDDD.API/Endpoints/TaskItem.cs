@@ -1,11 +1,10 @@
-﻿namespace EfCoreDDD.API.Endpoints
+﻿namespace EfCoreDDD.API.Endpoints;
+
+public class TaskItem : IEndpointGroup
 {
-    public class TaskItem : IEndpointGroup
+    public static void Map(RouteGroupBuilder groupBuilder)
     {
-        public static void Map(RouteGroupBuilder groupBuilder)
-        {
-            groupBuilder.MapGet("/", () => "Test");
-        }
-        
+        groupBuilder.MapGet("/", () => "Test");
     }
+    
 }

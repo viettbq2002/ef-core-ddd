@@ -19,5 +19,11 @@ namespace EfCoreDDD.Infrastructure
             });
             return services;
         }
+        public static void MigrateDatabase(this IServiceProvider serviceProvider)
+        {
+            using var scope = serviceProvider.CreateScope();
+            var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+            dbContext.Database.Migrate();
+        }
     }
 }

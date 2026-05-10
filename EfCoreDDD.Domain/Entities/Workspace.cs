@@ -22,5 +22,8 @@ namespace EfCoreDDD.Domain.Entities
             Name  = name;
             SetUpdated();
         }
+        public void AddtaskList(TaskList list) {
+            _lists.Add(list);
+        }
     }
 }

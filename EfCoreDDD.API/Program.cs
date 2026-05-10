@@ -14,7 +14,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IUnitOfWork,ApplicationDbContext>();
 builder.Services.AddScoped<IWorkspaceQueries, WorkspaceQueriesContext>();
-builder.Services.AddInfrastructure(builder.Configuration);
+builder.Services.AddInfrastructure(builder.Configuration)
+                .RegisterValidation();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

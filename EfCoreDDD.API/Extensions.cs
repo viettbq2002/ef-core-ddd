@@ -1,4 +1,6 @@
 ﻿using Ardalis.GuardClauses;
+using EfCoreDDD.API.Validations;
+using FluentValidation;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using System.Reflection;
 
@@ -23,6 +25,13 @@ namespace EfCoreDDD.API
 
             return app;
         }
-      
+
+        public static IServiceCollection RegisterValidation(this IServiceCollection services)
+        {
+            services.AddValidatorsFromAssemblyContaining<CreateWorkspaceValidations>();
+            services.AddValidatorsFromAssemblyContaining<UpdateWorkspaceValidations>();
+            return services;
+        }
+
     }
 }

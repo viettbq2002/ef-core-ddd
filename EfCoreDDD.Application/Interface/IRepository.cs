@@ -16,5 +16,6 @@ namespace EfCoreDDD.Application.Interface
             Guard.Against.Null(aggregate, nameof(aggregate), $"Aggregate with key {key} not found.");
             Delete(aggregate);
         }
+        Task<bool> AnyAsync(TKey key);
     }
 }
